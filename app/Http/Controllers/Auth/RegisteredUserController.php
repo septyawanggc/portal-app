@@ -20,7 +20,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        return view('auth.formregister');
     }
 
     /**
@@ -33,14 +33,25 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required'],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'level' => $request->level,
         ]);
+        $roles = $request->input('level');
+        if($roles == ('Admin')) {
+            $user->assignRole('Admin');
+        } elseif($roles == ('Operator')){
+            $user->assignRole('Creator');
+        } elseif($roles == ('Teknisi')){
+            $user->assignRole('Creator');
+        } else{
+            $user->assignRole('Moderator');
+        }
 
         event(new Registered($user));
 
