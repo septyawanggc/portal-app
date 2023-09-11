@@ -21,15 +21,35 @@ export default {
 };
 
 module.exports = {
-  content: [
-  "./resources/**/*.blade.php",
-  "./resources/**/*.js",
-  "./resources/**/*.vue",
-  "./node_modules/tw-elements/dist/js/**/*.js"
-  ],
-  theme: {
-    extend: {},
-  },
-  darkMode: "class",
+    content: [
+      "./resources/**/*.blade.php",
+      "./resources/**/*.js",
+      "./resources/**/*.vue",
+      "./node_modules/flowbite/**/*.js"
+      "./node_modules/tw-elements/dist/js/**/*.js"
+    ],
+    theme: {
+      extend: {},
+        container: {
+          center: true,
+          padding: {
+            DEFAULT: '1rem',
+            sm: '2rem',
+            lg: '4rem',
+            xl: '5rem',
+            2xl: '6rem',
+    }},
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+      '3xl': '1600px',
+    }
+    plugins: [
+        require('flowbite/plugin')
+    ],
+    darkMode: "class",
   plugins: [require("tw-elements/dist/plugin.cjs")]
-}
+  }}

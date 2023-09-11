@@ -1,5 +1,6 @@
 import './bootstrap';
 import Alpine from 'alpinejs';
+import 'flowbite';
 import { Datepicker, Input, initTE } from "tw-elements";
 initTE({ Datepicker, Input });
 
