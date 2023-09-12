@@ -3,9 +3,10 @@
     margin: 0;
     padding: 0;
     font-family: 'poppins',sans-serif;
+    
 }
 body {
-    background-color: blanchedalmond;
+    background-color: rgb(87, 84, 81);
     font-family: sans-serif;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,3 +16,14 @@ body {
     justify-content: center;
     align-items: center;
 }
+main {
+    margin-top: 100px;.
+    margin-left: 0;
+    margin: right 0;
+    transition: all 0.5s ease;
+    z-index: 1000;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    overflow-y: auto;
+  }
