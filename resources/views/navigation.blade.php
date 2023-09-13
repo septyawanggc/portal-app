@@ -14,7 +14,7 @@
 <body class="bg-gray-100">     
   <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 top-0 left-0 w-full shadow fixed">
     <div class="container max-w-screen-auto flex items-center justify-between mx-auto p-4">
-      <a href="#" class="flex items-center">
+      <a href="/dashboard" class="flex items-center">
           <img src="{{ asset('image/water.svg')}}" class="h-8 mr-3" alt="Flowbite Logo" />
           <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Portal ASB</span>
       </a>
@@ -49,7 +49,7 @@
               <div id="dropdownNavbarMTC" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                   <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                     <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Main Menu</a>
+                      <a href="/maintenance" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Main Menu</a>
                     </li>
                     <li>
                       <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Form Mingguan</a>
