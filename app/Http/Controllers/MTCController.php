@@ -12,5 +12,8 @@ class MTCController extends Controller
     return view('mtc.main')->with( ['user' => Auth::user()]);
    }
 
-   
+   public function formmingguan ()
+   {
+      return view('mtc.formmingguan')->with( ['user' => Auth::user()]);
+   }
 }

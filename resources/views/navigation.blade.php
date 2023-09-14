@@ -8,7 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet" />  
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet" /> 
+    @include('sweetalert::alert') 
 </head>
 @yield('header')
 <body class="bg-gray-100">     
@@ -52,7 +53,7 @@
                       <a href="/maintenance" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Main Menu</a>
                     </li>
                     <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Form Mingguan</a>
+                      <a href="/formmingguan" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Form Mingguan</a>
                     </li>
                     <li>
                       <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mekanikal</a>
