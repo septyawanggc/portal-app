@@ -2,6 +2,7 @@
 @section('header')
 @endsection
 @section('main')
+@if ($user->level == "SPV-Maintenance" or $user->level == "Admin" or $user->level=="Dirut" or $user->level=="PlantManager" or $user->level=="Teknisi")
 <section>
 
     
@@ -62,6 +63,7 @@
 
 
 </section>
+@endif
 @endsection
 @section('footer')
 @endsection
