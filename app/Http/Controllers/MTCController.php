@@ -11,4 +11,6 @@ class MTCController extends Controller
    {
     return view('mtc.main')->with( ['user' => Auth::user()]);
    }
+
+   
 }
