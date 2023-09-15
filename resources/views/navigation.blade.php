@@ -9,6 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet" /> 
+    <link href="{{ asset('fontawesome/css/all.css') }}" rel="stylesheet" /> 
     @include('sweetalert::alert') 
 </head>
 @yield('header')
@@ -197,5 +198,8 @@
 </main>
 @yield('footer')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+  <script>
+    
+  </script>
 </body>
 </html>
