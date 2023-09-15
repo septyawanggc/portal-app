@@ -44,6 +44,8 @@
             </div>
         </div>
     </section>
+    @include('sweetalert::alert')
+
 </body>
 <script>
     $(document).ready(function () {

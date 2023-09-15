@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MTCController;
 

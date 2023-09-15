@@ -24,10 +24,6 @@
         </nav>
     </header>
     <section>
-        <x-input-error :messages="$errors->get('name')" class="mt-2" style="color:whitesmoke" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" style="color:whitesmoke" />
-            <x-input-error :messages="$errors->get('Roles')" class="mt-2" style="color:whitesmoke" />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" style="color:whitesmoke" />
         <div class="form-box">
             <div class="form-value">
                 <form action="{{ route('register') }}" method="POST">
@@ -37,12 +33,13 @@
                         <ion-icon name="person-outline"></ion-icon>
                         <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                         <x-input-label for="name" :value="__('Name')" />
+                        <x-input-error :messages="$errors->get('name')" class="mt-2" style="color:whitesmoke" />
                     </div>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
                         <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
                         <x-input-label for="email" :value="__('Email')" />
-                        
+                        <x-input-error :messages="$errors->get('email')" class="mt-2" style="color:whitesmoke" />
                     </div>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
@@ -51,6 +48,7 @@
                             name="password"
                             required autocomplete="new-password" />
                         <x-input-label for="password" :value="__('Password')" />
+                        <x-input-error :messages="$errors->get('password')" class="mt-2" style="color:whitesmoke" />
                     </div>
                     
                     <div class="inputbox">
@@ -75,6 +73,7 @@
             </div>
         </div>
     </section>
+    @include('sweetalert::alert')
 </body>
 <script>
     $(document).ready(function () {
