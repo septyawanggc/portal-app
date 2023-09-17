@@ -11,7 +11,8 @@
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet" /> 
     <link href="{{ asset('fontawesome/css/all.css') }}" rel="stylesheet" /> 
     <link href="{{ asset('fontawesome/css/solid.css') }}" rel="stylesheet" /> 
-    <link href="{{ asset('fontawesome/css/brands.css') }}" rel="stylesheet" /> 
+    <link href="{{ asset('fontawesome/css/brands.css') }}" rel="stylesheet" />
+     
     @include('sweetalert::alert') 
 </head>
 @yield('header')

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MTCController;
+use App\Http\Controllers\pompaintakeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('/maintenance', MTCController::class);
     Route::get('/formmingguan', [MTCController::class, 'formmingguan'])->name('formmingguan');
+    Route::resource('/pompaintake', pompaintakeController::class);
 });
 
 require __DIR__.'/auth.php';
