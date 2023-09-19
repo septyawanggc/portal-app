@@ -21,7 +21,7 @@ class pompaintakeController extends Controller
      */
     public function create()
     {
-        //
+        return view('mtc.createpompaintake')->with( ['user' => Auth::user()]);
     }
 
     /**
