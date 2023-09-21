@@ -35,7 +35,7 @@ class pompaintake extends Model
         'NDEAM',
         'NDEMTemp',
         'FreqM',
-        'CurrM',
+        'Current',
         'RPM',
         'Keterangan',
         'Oleh',

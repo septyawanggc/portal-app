@@ -3,7 +3,8 @@
 <section class="bg-white dark:bg-gray-900">
     <div class="py-8 px-4 mx-auto lg:py-16">
         <h1 class="mb-4 justify-center text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-2xl lg:text-3xl dark:text-white">Tambah  <mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">Data Baru</mark></h1>
-        <form action="#">
+        <form action="{{ route('pompaintake.store') }}" method="post" >
+            @csrf
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                 <div class="sm:col-span-2">
                     <div class="columns-3">
@@ -22,7 +23,22 @@
                         </div>
                         <div class="w-full">
                             <label for="Bulan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bulan</label>
-                            <input type="Month" name="Bulan" id="Bulan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Bulan">
+                            <select id="Bulan" name="Bulan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <option selected="">Bulan</option>
+                            <option value="Januari">Januari</option>
+                            <option value="Februari">Februari</option>
+                            <option value="Maret">Maret</option>
+                            <option value="April">April</option>
+                            <option value="Mei">Mei</option>
+                            <option value="Juni">Juni</option>
+                            <option value="Juli">Juli</option>
+                            <option value="Agustus">Agustus</option>
+                            <option value="September">September</option>
+                            <option value="Oktober">Oktober</option>
+                            <option value="November">November</option>
+                            <option value="Desember">Desember</option>
+                            
+                            </select>
                         </div>
                     </div>
                     
@@ -81,7 +97,7 @@
                             <label for="Mechseal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mech Seal Status</label>
                             <select id="MechP" name="MechP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                 <option selected="">Select Status</option>
-                                <option value=",OK/TidakRembes">OK/TidakRembes</option>
+                                <option value="OK/TidakRembes">OK/TidakRembes</option>
                                 <option value="NOK/Rembes">NOK/Rembes</option>
                             </select>
                         <div class="w-full">
@@ -148,7 +164,7 @@
                             </div>
                             <div class="w-full">
                             <label for="Current" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Current Motor</label>
-                            <input type="text" name="CurrM" id="CurrM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Current Motor" required="">
+                            <input type="text" name="Current" id="Current" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Current Motor" required="">
                         </div>
                         <div class="w-full">
                             <label for="RPM" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">RPM Motor</label>

@@ -1,5 +1,6 @@
 @extends('mtc.mastermingguan')
 @section('mainmenu')
+@include('sweetalert::alert')
 <div class="p-4 rounded-lg dark:border-gray-700">
     <div class="grid grid-cols-3 gap-4 mb-4">
        <div class="flex items-center justify-center rounded bg-gray-50 dark:bg-gray-800">
@@ -357,7 +358,7 @@
 
   
 <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Data Form Minggan </span> Pompa Intake</h1>
-<p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
+<p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Hasil Inspeksi Pompa Intake Mingguan ASB</p>
 
 <a href="/pompaintake/create" class="inline-flex items-center justify-center px-5 py-3"><button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
   <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
@@ -372,76 +373,76 @@
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
               <th scope="col" class="px-6 py-3">
-                  Product name
+                  #
               </th>
               <th scope="col" class="px-6 py-3">
-                  Color
+                  Tanggal
               </th>
               <th scope="col" class="px-6 py-3">
-                  Category
+                  Bulan
               </th>
               <th scope="col" class="px-6 py-3">
-                  Price
+                  Nama Peralatan
               </th>
               <th scope="col" class="px-6 py-3">
-                  <span class="sr-only">Edit</span>
+                Status
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Action
               </th>
           </tr>
       </thead>
       <tbody>
+        @foreach ($data as $data)
           <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
               <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  Apple MacBook Pro 17"
+                {{$data->id}} 
               </th>
               <td class="px-6 py-4">
-                  Silver
+                {{$data->Tanggal}}
               </td>
               <td class="px-6 py-4">
-                  Laptop
+                {{$data->Bulan}}
               </td>
               <td class="px-6 py-4">
-                  $2999
+                {{$data->Equipment}}
+              </td>
+              <td class="px-6 py-4">
+                {{$data->Status}}
               </td>
               <td class="px-6 py-4 text-right">
-                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                <a href="{{route ('pompaintake.show', $data->id)}}"><button class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Lihat</button></a>
+                <a href="{{route ('pompaintake.edit', $data->id)}}"><button class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">Edit</button></a>
+                <form id="hapus" action="{{ route('pompaintake.destroy', $data->id) }}" method="POST" onclick="confirmDelete('hapus')">
+                      @csrf
+                      @method('DELETE')
+                      <button class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Hapus</button>
+                </form>
               </td>
           </tr>
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  Microsoft Surface Pro
-              </th>
-              <td class="px-6 py-4">
-                  White
-              </td>
-              <td class="px-6 py-4">
-                  Laptop PC
-              </td>
-              <td class="px-6 py-4">
-                  $1999
-              </td>
-              <td class="px-6 py-4 text-right">
-                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-              </td>
-          </tr>
-          <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  Magic Mouse 2
-              </th>
-              <td class="px-6 py-4">
-                  Black
-              </td>
-              <td class="px-6 py-4">
-                  Accessories
-              </td>
-              <td class="px-6 py-4">
-                  $99
-              </td>
-              <td class="px-6 py-4 text-right">
-                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-              </td>
-          </tr>
+          @endforeach
       </tbody>
   </table>
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script>
+  function confirmDelete(item_id) {
+      swal({
+           title: 'Apakah Anda Yakin?',
+            text: "Anda Tidak Akan Dapat Mengembalikannya!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+      })
+          .then((willDelete) => {
+              if (willDelete) {
+                  $('#'+item_id).submit();
+              } else {
+                  swal("Cancelled Successfully");
+              }
+          });
+  }
+</script>
 @endsection
