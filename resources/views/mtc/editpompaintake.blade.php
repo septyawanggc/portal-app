@@ -1,6 +1,9 @@
 @extends('mtc.mastermingguan')
 @section('mainmenu')
 <section class="bg-white dark:bg-gray-900">
+    <form action="{{ route('pompaintake.update', $data->id) }}" method="POST">
+        @csrf
+        @method('PATCH')
     <div class="py-8 px-4 mx-auto lg:py-16">
         <h1 class="mb-4 justify-center text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-2xl lg:text-3xl dark:text-white">Hasil  <mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">Inspeksi</mark> Pompa Intake  {{$data->Equipment}}<span class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 float-right">{{$data->Status}}</span></h1>
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
@@ -31,19 +34,19 @@
                 <div class="columns-4">
                     <div class="w-full">
                     <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DE Vertikal </label>
-                    <input type="text" name="DEVP" id="DEVP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEVP}}" readonly>
+                    <input type="text" name="DEVP" id="DEVP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEVP}}" >
                     </div>
                     <div class="w-full">
                     <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DE Horizontal </label>
-                    <input type="text" name="DEHP" id="DEHP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEHP}}" readonly>
+                    <input type="text" name="DEHP" id="DEHP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEHP}}" >
                     </div>
                     <div class="w-full">
                     <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DE Axial</label>
-                    <input type="text" name="DEAP" id="DEAP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEAP}}" readonly>
+                    <input type="text" name="DEAP" id="DEAP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEAP}}" >
                     </div>
                     <div class="w-full">
                     <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Temperature</label>
-                    <input type="text" name="DEPTemp" id="DEPTemp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEPTemp}}" readonly>
+                    <input type="text" name="DEPTemp" id="DEPTemp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEPTemp}}" >
                     </div>
                 </div>
                 </div>
@@ -54,30 +57,30 @@
                 <div class="columns-4">
                     <div class="w-full">
                         <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NDE Vertikal </label>
-                        <input type="text" name="NDEVP" id="NDEVP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEVP}}" readonly>
+                        <input type="text" name="NDEVP" id="NDEVP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEVP}}" >
                         </div>
                         <div class="w-full">
                         <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NDE Horizontal </label>
-                        <input type="text" name="NDEHP" id="NDEHP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEHP}}" readonly>
+                        <input type="text" name="NDEHP" id="NDEHP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEHP}}" >
                         </div>
                         <div class="w-full">
                         <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NDE Axial</label>
-                        <input type="text" name="NDEAP" id="NDEAP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEAP}}" readonly>
+                        <input type="text" name="NDEAP" id="NDEAP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEAP}}" >
                         </div>
                         <div class="w-full">
                         <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Temperature</label>
-                        <input type="text" name="NDEPTemp" id="NDEPTemp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEPTemp}}" readonly>
+                        <input type="text" name="NDEPTemp" id="NDEPTemp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEPTemp}}" >
                         </div>
                 </div>
                 <div class="sm:col-span-2 gap-8 ">
                     <div class="columns-2">
                         <div class="w-full">
                             <label for="Mechseal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mech Seal Status</label>
-                            <input type="text" name="MechP" id="MechP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->MechP}}" readonly>
+                            <input type="text" name="MechP" id="MechP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->MechP}}" >
                         </div>
                         <div class="w-full">
                         <label for="Pressure Pump" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pressure Pump </label>
-                        <input type="text" name="PressP" id="PressP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->PressP}}" readonly>
+                        <input type="text" name="PressP" id="PressP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->PressP}}" >
                         </div>
                         </div>
                     </div>
@@ -92,19 +95,19 @@
                     <div class="columns-4">
                         <div class="w-full">
                     <label for="DE Vertikal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DE Vertikal </label>
-                    <input type="text" name="DEVM" id="DEVM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEVM}}" readonly>
+                    <input type="text" name="DEVM" id="DEVM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEVM}}" >
                     </div>
                     <div class="w-full">
                     <label for="DE Horizontal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DE Horizontal </label>
-                    <input type="text" name="DEHM" id="DEHM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEHM}}" readonly>
+                    <input type="text" name="DEHM" id="DEHM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEHM}}" >
                     </div>
                     <div class="w-full">
                     <label for="DE Axial" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DE Axial</label>
-                    <input type="text" name="DEAM" id="DEAM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEAM}}" readonly>
+                    <input type="text" name="DEAM" id="DEAM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEAM}}" >
                     </div>
                     <div class="w-full">
                     <label for="Temperature" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Temperature</label>
-                    <input type="text" name="DEMTemp" id="DEMTemp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEMTemp}}" readonly>
+                    <input type="text" name="DEMTemp" id="DEMTemp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->DEMTemp}}" >
                     </div>
                         </div>
                     </div>
@@ -116,48 +119,48 @@
                 <div class="columns-4">
                         <div class="w-full">
                         <label for="NDE Vertikal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NDE Vertikal </label>
-                        <input type="text" name="NDEVM" id="NDEVM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEVM}}" readonly>
+                        <input type="text" name="NDEVM" id="NDEVM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEVM}}" >
                         </div>
                         <div class="w-full">
                         <label for="NDE Horizontal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NDE Horizontal </label>
-                        <input type="text" name="NDEHM" id="NDEHM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEHM}}" readonly>
+                        <input type="text" name="NDEHM" id="NDEHM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEHM}}" >
                         </div>
                         <div class="w-full">
                         <label for="NDE Axial" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NDE Axial</label>
-                        <input type="text" name="NDEAM" id="NDEAM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEAM}}" readonly>
+                        <input type="text" name="NDEAM" id="NDEAM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEAM}}" >
                         </div>
                         <div class="w-full">
                         <label for="Temperature" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Temperature</label>
-                        <input type="text" name="NDEMTemp" id="NDEPTemp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEMTemp}}" readonly>
+                        <input type="text" name="NDEMTemp" id="NDEPTemp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->NDEMTemp}}" >
                         </div>
                 </div>
                 <div class="sm:col-span-2 gap-8">
                     <div class="columns-3">
                         <div class="w-full">
                             <label for="Frequency" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Frequency</label>
-                            <input type="text" name="FreqM" id="FreqM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->FreqM}}" readonly>
+                            <input type="text" name="FreqM" id="FreqM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->FreqM}}" >
                             </div>
                             <div class="w-full">
                             <label for="Current" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Current Motor</label>
-                            <input type="text" name="Current" id="Current" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->Current}}" readonly>
+                            <input type="text" name="Current" id="Current" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->Current}}" >
                         </div>
                         <div class="w-full">
                             <label for="RPM" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">RPM Motor</label>
-                            <input type="text" name="RPM" id="RPM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->RPM}}" readonly>
+                            <input type="text" name="RPM" id="RPM" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->RPM}}" >
                         </div>
                     </div>
                 </div>
                 <div>
                     <label for="Oleh" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Di input Oleh {{ Auth::user()->name }}</label>
-                    <input type="text" name="Oleh" id="Oleh" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->Oleh}}" readonly>
+                    <input type="text" name="Oleh" id="Oleh" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->Oleh}}" >
                 </div> 
                 <div>
                     <label for="Status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status </label>
-                    <input type="text" name="Status" id="Status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->Status}}" readonly>
+                    <input type="text" name="Status" id="Status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{$data->Status}}" >
                 </div> 
                 <div class="sm:col-span-2">
                     <label for="Keterangan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Keterangan</label>
-                    <textarea id="Keterangan" rows="8" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">{{$data->Keterangan}}</textarea>
+                    <textarea id="Keterangan" name="Keterangan" rows="8" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">{{$data->Keterangan}}</textarea>
                 </div>
             </div>
             <div class="flex">
@@ -169,11 +172,12 @@
                 <p id="helper-checkbox-text" class="text-xs font-normal text-gray-500 dark:text-gray-300">Jika ada kesalahan dalam informasi mohon diperbarui lewat menu edit</p>
             </div>
         </div>
-        <a href="/pompaintake"><button type="button" class="text-white bg-[#FF9119] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 mr-2 mb-2">
-            Kembali
+        <button type="submit" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+            Update
           </button></a>
         </div>
     </div>
+    </form>
   </section>
 
 @endsection

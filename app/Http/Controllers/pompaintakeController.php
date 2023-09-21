@@ -52,7 +52,8 @@ class pompaintakeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = pompaintake::findOrFail($id);
+        return view('mtc.editpompaintake')->with(compact('data'))->with( ['user' => Auth::user()]);
     }
 
     /**
@@ -60,7 +61,10 @@ class pompaintakeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = pompaintake::findOrFail($id);
+        $data->update($request->all());
+        Alert::success('Congrats', 'Data Edited Succesfuly');
+        return redirect('/pompaintake')->with( ['user' => Auth::user()]);
     }
 
     /**
