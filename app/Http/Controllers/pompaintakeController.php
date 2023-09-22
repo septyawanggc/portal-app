@@ -72,6 +72,9 @@ class pompaintakeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = pompaintake::findOrFail($id);
+        $data->delete();
+        Alert::success('Congrats', 'Data Deleted Succesfuly');
+        return redirect('/pompaintake')->with( ['user' => Auth::user()]);
     }
 }

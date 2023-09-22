@@ -1,7 +1,7 @@
 @extends('mtc.mastermingguan')
 @section('mainmenu')
 @include('sweetalert::alert')
-<div class="p-4 rounded-lg dark:border-gray-700">
+<div class="p-4 rounded-lg dark:border-gray-700 flex-wrap" >
     <div class="grid grid-cols-3 gap-4 mb-4">
        <div class="flex items-center justify-center rounded bg-gray-50 dark:bg-gray-800">
           
@@ -368,8 +368,9 @@
 </a>
 </x-bladewind.card>
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+<x-bladewind.card has_shadow="true">
+<div class="flex-wrap mx-auto">
+  <table id="pompaintake" class="w-full text-sm text-left text-gray-500 dark:text-gray-400 order-column">
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
               <th scope="col" class="px-6 py-3">
@@ -413,7 +414,7 @@
               <td class="px-6 py-4 text-right">
                 <a href="{{route ('pompaintake.show', $data->id)}}"><button class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Lihat</button></a>
                 <a href="{{route ('pompaintake.edit', $data->id)}}"><button class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">Edit</button></a>
-                <form id="hapus" action="{{ route('pompaintake.destroy', $data->id) }}" method="POST" onclick="confirmDelete('hapus')">
+                <form id="hapus" action="{{ route('pompaintake.destroy', $data->id) }}" method="POST" onsubmit="confirmDelete('hapus')">
                       @csrf
                       @method('DELETE')
                       <button class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Hapus</button>
@@ -424,6 +425,7 @@
       </tbody>
   </table>
 </div>
+</x-bladewind.card>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script>
   function confirmDelete(item_id) {
@@ -445,4 +447,16 @@
           });
   }
 </script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.tailwindcss.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#pompaintake').DataTable({
+      autoFill: true});
+    
+  });
+</script>
+@endsection
+@section('footer')
 @endsection

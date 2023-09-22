@@ -12,7 +12,7 @@
     <link href="{{ asset('fontawesome/css/all.css') }}" rel="stylesheet" /> 
     <link href="{{ asset('fontawesome/css/solid.css') }}" rel="stylesheet" /> 
     <link href="{{ asset('fontawesome/css/brands.css') }}" rel="stylesheet" />
-     
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.tailwindcss.min.css" />
     @include('sweetalert::alert') 
 </head>
 @yield('header')
@@ -201,8 +201,10 @@
 </main>
 @yield('footer')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
-  <script>
-    
-  </script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.tailwindcss.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+  
 </body>
 </html>

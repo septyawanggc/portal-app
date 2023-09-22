@@ -10,67 +10,67 @@
            <ul class="space-y-2 font-medium">
               <li>
                  <a href="/pompaintake" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700 group">
-                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-bars-staggered"></i>
                     <span class="ml-3">Pompa Intake</span>
                  </a>
               </li>
               <li>
                  <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group">
-                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-bars-staggered"></i>
                     <span class="flex-1 ml-3 whitespace-nowrap">Pompa Backwash</span>
                  </a>
               </li>
               <li>
                  <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700 group">
-                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-bars-staggered"></i>
                     <span class="flex-1 ml-3 whitespace-nowrap">Pompa Dosing</span>
                  </a>
               </li>
               <li>
                  <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700 group">
-                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-bars-staggered"></i>
                     <span class="flex-1 ml-3 whitespace-nowrap">Mixer</span>
                  </a>
               </li>
               <li>
                  <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700 group">
-                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-bars-staggered"></i>
                     <span class="flex-1 ml-3 whitespace-nowrap">Trafo Intake</span>
                  </a>
               </li>
               <li>
                  <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700 group">
-                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-bars-staggered"></i>
                     <span class="flex-1 ml-3 whitespace-nowrap">Trafo WTP</span>
                  </a>
               </li>
               <li>
                  <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700 group">
-                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-bars-staggered"></i>
                     <span class="flex-1 ml-3 whitespace-nowrap">Genset WTP</span>
                  </a>
               </li>
               <li>
                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700 group">
-                <i class="fa-solid fa-plus"></i>
+                <i class="fa-solid fa-bars-staggered"></i>
                   <span class="flex-1 ml-3 whitespace-nowrap">Genset Intake ASB</span>
                </a>
             </li>
             <li>
                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700 group">
-                <i class="fa-solid fa-plus"></i>
+                <i class="fa-solid fa-bars-staggered"></i>
                   <span class="flex-1 ml-3 whitespace-nowrap">Genset Intake BBWS</span>
                </a>
             </li>
             <li>
                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700 group">
-                <i class="fa-solid fa-plus"></i>
+                <i class="fa-solid fa-bars-staggered"></i>
                   <span class="flex-1 ml-3 whitespace-nowrap">Genset Manyaran </span>
                </a>
             </li>
             <li>
                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700 group">
-                <i class="fa-solid fa-plus"></i>
+                <i class="fa-solid fa-bars-staggered"></i>
                   <span class="flex-1 ml-3 whitespace-nowrap">Genset Desel</span>
                </a>
             </li>
