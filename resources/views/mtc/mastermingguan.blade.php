@@ -15,13 +15,13 @@
                  </a>
               </li>
               <li>
-                 <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group">
+                 <a href="/pompabw" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group">
                   <i class="fa-solid fa-bars-staggered"></i>
                     <span class="flex-1 ml-3 whitespace-nowrap">Pompa Backwash</span>
                  </a>
               </li>
               <li>
-                 <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700 group">
+                 <a href="/pompadosing" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700 group">
                   <i class="fa-solid fa-bars-staggered"></i>
                     <span class="flex-1 ml-3 whitespace-nowrap">Pompa Dosing</span>
                  </a>

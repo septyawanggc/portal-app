@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pompaintake', function (Blueprint $table) {
+        Schema::create('pompabw', function (Blueprint $table) {
             $table->id('id');
             $table->enum('Equipment',['Pompa1','Pompa2','Pompa3']);
             $table->date('Tanggal');
@@ -37,8 +37,8 @@ return new class extends Migration
             $table->string('NDEMTemp',20);
             $table->string('FreqM',20);
             $table->string('Current',10);
-            $table->string('RMP',10);
-            $table->text('Keterangan');
+            $table->string('RPM',10);
+            $table->text('Keterangan',255);
             $table->string('Oleh',20);
             $table->timestamps();
         });

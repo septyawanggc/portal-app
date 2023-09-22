@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\pompabackwash;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class pompabackwashController extends Controller
 {
@@ -13,7 +15,8 @@ class pompabackwashController extends Controller
      */
     public function index()
     {
-        //
+        $data = pompabackwash::all();
+        return view('mtc.mainpompabw')->with(compact('data'))->with( ['user' => Auth::user()]);
     }
 
     /**
@@ -21,7 +24,7 @@ class pompabackwashController extends Controller
      */
     public function create()
     {
-        //
+        return view('mtc.createpompabw')->with( ['user' => Auth::user()]);
     }
 
     /**
@@ -29,7 +32,10 @@ class pompabackwashController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        pompabackwash::create($data);
+        Alert::success('Congrats', 'Data Inputed Succesfuly');
+        return redirect('/pompabw')->with( ['user' => Auth::user()]);
     }
 
     /**
@@ -37,7 +43,8 @@ class pompabackwashController extends Controller
      */
     public function show(pompabackwash $pompabackwash)
     {
-        //
+        $data = pompabackwash::findOrFail($id);
+        return view('mtc.showpompabw')->with(compact('data'))->with( ['user' => Auth::user()]);
     }
 
     /**
@@ -45,7 +52,8 @@ class pompabackwashController extends Controller
      */
     public function edit(pompabackwash $pompabackwash)
     {
-        //
+        $data = pompabackwash::findOrFail($id);
+        return view('mtc.editpompabw')->with(compact('data'))->with( ['user' => Auth::user()]);
     }
 
     /**
@@ -53,7 +61,10 @@ class pompabackwashController extends Controller
      */
     public function update(Request $request, pompabackwash $pompabackwash)
     {
-        //
+        $data = pompabackwash::findOrFail($id);
+        $data->update($request->all());
+        Alert::success('Congrats', 'Data Edited Succesfuly');
+        return redirect('/pompabw')->with( ['user' => Auth::user()]);
     }
 
     /**
@@ -61,6 +72,9 @@ class pompabackwashController extends Controller
      */
     public function destroy(pompabackwash $pompabackwash)
     {
-        //
+        $data = pompabackwash::findOrFail($id);
+        $data->delete();
+        Alert::success('Congrats', 'Data Deleted Succesfuly');
+        return redirect('/pompaintake')->with( ['user' => Auth::user()]);
     }
 }

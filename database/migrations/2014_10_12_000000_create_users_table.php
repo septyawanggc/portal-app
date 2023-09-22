@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('level',['Admin','Dirut','PlantManager','SPV-Maintenance','SPV-Produksi','HSE','HCGS','Operator','Teknisi','SCM','Laborat'])
             $table->rememberToken();
             $table->timestamps();
         });

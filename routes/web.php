@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MTCController;
+use App\Http\Controllers\pompabackwashController;
 use App\Http\Controllers\pompaintakeController;
+use App\Http\Controllers\pompdadosingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('/maintenance', MTCController::class);
     Route::get('/formmingguan', [MTCController::class, 'formmingguan'])->name('formmingguan');
     Route::resource('/pompaintake', pompaintakeController::class);
+    route::resource('/pompabw', pompabackwashController::class);
+    Route::resource('/pompadosing',pompdadosingController::class);
 });
 
 require __DIR__.'/auth.php';
