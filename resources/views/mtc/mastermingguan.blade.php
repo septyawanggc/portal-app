@@ -6,7 +6,7 @@
 <section>
  
      <aside id="default-sidebar" class="fixed top-50 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 rounded" aria-label="Sidebar">
-        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-white dark:bg-gray-80">
            <ul class="space-y-2 font-medium">
               <li>
                  <a href="/pompaintake" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700 group">
