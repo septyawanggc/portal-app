@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\pompadosing;
-use App\Http\Requests\StorepompadosingRequest;
-use App\Http\Requests\UpdatepompadosingRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
-
-use function Laravel\Prompts\alert;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 class pompdadosingController extends Controller
 {
@@ -73,8 +72,37 @@ class pompdadosingController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(pompadosing $pompadosing)
+    public function destroy(string $id)
     {
-        //
+        $data = pompadosing::findOrFail($id);
+        $data->delete();
+        Alert::success('Congrats', 'Data Deleted Succesfuly');
+        return redirect('/pompadosing')->with( ['user' => Auth::user()]);
+    }
+
+    public function exportToExcel()
+    {
+        $data = pompadosing::all();
+        $templatePath = storage_path('app/pompadosing.xlsx');
+        $outputPath = storage_path('app/export_pompadosing.xlsx');
+        copy($templatePath, $outputPath);
+        $spreadsheet = IOFactory::load($outputPath);
+        // Isi data dari aplikasi Anda ke dalam template
+        $worksheet = $spreadsheet->getActiveSheet();
+        $row = 4; // Mulai dari baris kedua untuk mengisi data
+            foreach ($data as $item) {
+                $worksheet->setCellValue('C' . $row, $item->Tanggal);
+            }
+        $row = 7; // Mulai dari baris kedua untuk mengisi data
+            foreach ($data as $item) {
+                $worksheet->setCellValue('B' . $row, $item->Nama);
+                $worksheet->setCellValue('E' . $row, $item->Temp);
+            }
+        // Simpan perubahan
+        $writer = new Xlsx($spreadsheet);
+        $writer->save($outputPath);
+    
+        // Download file yang telah dibuat
+     return response()->download($outputPath, 'export_pompadosing.xlsx');
     }
 }
