@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/pompaintake', pompaintakeController::class);
     route::resource('/pompabw', pompabackwashController::class);
     Route::resource('/pompadosing',pompdadosingController::class);
-    Route::get('/export-pompadosing',[pompdadosingController::class, 'exportToExcel'])->name('exportToExcel');
+    Route::get('/export-pompadosing/{$id}', 'pompdadosingController@exportToExcel')->name('export-pompadosing');
 });
 
 require __DIR__.'/auth.php';

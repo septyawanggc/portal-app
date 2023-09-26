@@ -80,9 +80,9 @@ class pompdadosingController extends Controller
         return redirect('/pompadosing')->with( ['user' => Auth::user()]);
     }
 
-    public function exportToExcel()
+    public function exportToExcel($id)
     {
-        $data = pompadosing::all();
+        $data = pompadosing::findOrFail($id);
         $templatePath = storage_path('app/pompadosing.xlsx');
         $outputPath = storage_path('app/export_pompadosing.xlsx');
         copy($templatePath, $outputPath);
