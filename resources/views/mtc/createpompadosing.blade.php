@@ -9,8 +9,8 @@
                 <div class="sm:col-span-2">
                     <div class="columns-4">
                         <div class="w-full">
-                            <label for="Equipment" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id Alat</label>
-                            <select id="Equipment" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <label for="idalat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id Alat</label>
+                            <select id="idalat" name="idalat"class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             <option selected="">Select IdAlat</option>
                             <option value="1">1->PACL1</option>
                             <option value="2">2->PACL2</option>
@@ -29,8 +29,8 @@
                             </select>
                         </div>
                         <div class="w-full">
-                            <label for="Tanggal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Alat</label>
-                            <select id="Equipment" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <label for="Nama" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Alat</label>
+                            <select id="Nama" name="Nama" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                 <option selected="">Select Equipment</option>
                                 <option value="PACL1">PACL1</option>
                                 <option value="PACL2">PACL2</option>

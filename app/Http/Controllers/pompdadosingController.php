@@ -9,6 +9,8 @@ use RealRashid\SweetAlert\Facades\Alert;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class pompdadosingController extends Controller
 {
@@ -80,24 +82,32 @@ class pompdadosingController extends Controller
         return redirect('/pompadosing')->with( ['user' => Auth::user()]);
     }
 
-    public function exportToExcel($id)
+    public function exportToExcel()
     {
-        $data = pompadosing::findOrFail($id);
+        $data = pompadosing::get()->all();
+        $year = DB::table('pompadosing')
+                ->whereYear('created_at', $data)
+                ->get();
         $templatePath = storage_path('app/pompadosing.xlsx');
         $outputPath = storage_path('app/export_pompadosing.xlsx');
         copy($templatePath, $outputPath);
         $spreadsheet = IOFactory::load($outputPath);
         // Isi data dari aplikasi Anda ke dalam template
         $worksheet = $spreadsheet->getActiveSheet();
-        $row = 4; // Mulai dari baris kedua untuk mengisi data
             foreach ($data as $item) {
-                $worksheet->setCellValue('C' . $row, $item->Tanggal);
+                $worksheet
+                ->setCellValue('B4', $item->Bulan)
+                ->setCellValue('E6', $item->Tanggal)
+                ->setCellValue('B7', $item->Nama)
+                ->setCellValue('E7', $item->Temp)
+                ->setCellValue('E8', $item->Leveloli)
+                ->setCellValue('E9', $item->Stroke)
+                ->setCellValue('E10', $item->Nois)
+                ->setCellValue('J7', $item->Status);
             }
-        $row = 7; // Mulai dari baris kedua untuk mengisi data
-            foreach ($data as $item) {
-                $worksheet->setCellValue('B' . $row, $item->Nama);
-                $worksheet->setCellValue('E' . $row, $item->Temp);
-            }
+            $worksheet
+            ->setCellValue('C4', $year);
+        
         // Simpan perubahan
         $writer = new Xlsx($spreadsheet);
         $writer->save($outputPath);
