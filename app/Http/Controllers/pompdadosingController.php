@@ -85,9 +85,6 @@ class pompdadosingController extends Controller
     public function exportToExcel()
     {
         $data = pompadosing::get()->all();
-        $year = DB::table('pompadosing')
-                ->whereYear('created_at', $data)
-                ->get();
         $templatePath = storage_path('app/pompadosing.xlsx');
         $outputPath = storage_path('app/export_pompadosing.xlsx');
         copy($templatePath, $outputPath);
@@ -96,7 +93,7 @@ class pompdadosingController extends Controller
         $worksheet = $spreadsheet->getActiveSheet();
             foreach ($data as $item) {
                 $worksheet
-                ->setCellValue('B4', $item->Bulan)
+                ->setCellValue('C4', $item->Bulan)
                 ->setCellValue('E6', $item->Tanggal)
                 ->setCellValue('B7', $item->Nama)
                 ->setCellValue('E7', $item->Temp)
@@ -105,8 +102,6 @@ class pompdadosingController extends Controller
                 ->setCellValue('E10', $item->Nois)
                 ->setCellValue('J7', $item->Status);
             }
-            $worksheet
-            ->setCellValue('C4', $year);
         
         // Simpan perubahan
         $writer = new Xlsx($spreadsheet);
