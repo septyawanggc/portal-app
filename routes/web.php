@@ -8,6 +8,7 @@ use App\Http\Controllers\MTCController;
 use App\Http\Controllers\pompabackwashController;
 use App\Http\Controllers\pompaintakeController;
 use App\Http\Controllers\pompdadosingController;
+use App\Http\Controllers\laporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,7 @@ Route::middleware('auth')->group(function () {
     route::resource('/pompabw', pompabackwashController::class);
     Route::resource('/pompadosing',pompdadosingController::class);
     Route::get('/export-pompadosing',[pompdadosingController::class, 'exportToExcel'])->name('export-pompadosing');
+    Route::resource('/laporan',laporanController::class);
 });
 
 require __DIR__.'/auth.php';

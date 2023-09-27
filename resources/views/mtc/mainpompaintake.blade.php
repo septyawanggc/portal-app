@@ -426,6 +426,7 @@
   </table>
 </div>
 </x-bladewind.card>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script>
   function confirmDelete(item_id) {
