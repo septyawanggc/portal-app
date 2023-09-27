@@ -19,6 +19,7 @@ class LkModel extends Model
         'pid',
         'bangunan',
         'analisa',
+        'kerusakan',
         'action',
         'operator',
         'diperiksa',

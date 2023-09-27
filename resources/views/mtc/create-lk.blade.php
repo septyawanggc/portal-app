@@ -29,44 +29,96 @@
                     </div>
                 </div>
                 <br>
-                <div class="columns-4">
+                <div class="columns-3">
                     <div class="w-full">
-                    <label for="Temperature" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Temperature</label>
-                    <input type="text" name="Temp" id="Temp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Temp" required="">
+                    <label for="Hari" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hari/Tanggal</label>
+                    <input type="date" name="tanggal" id="tanggal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
                     </div>
                     <div class="w-full">
-                    <label for="Leveloli" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Leveloli</label>
-                    <input type="text" name="Leveloli" id="Leveloli" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="High" required="">
+                    <label for="Jam" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jam</label>
+                    <input type="time" name="day" id="day" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
                     </div>
                     <div class="w-full">
-                    <label for="Stroke" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stroke</label>
-                    <input type="text" name="Stroke" id="Stroke" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="60%" required="">
-                    </div>
-                    <div class="w-full">
-                    <label for="Nois" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nois</label>
-                    <select id="Nois" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                        <option selected="">Select Nois</option>
-                        <option value="Normal">Normal</option>
-                        <option value="TidakNormal">TidakNormal</option>
-                    </select>
+                    <label for="PID" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No.PID</label>
+                    <input type="text" name="pid" id="pid" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="AIT-001">
                     </div>
                 </div>
+                <br>
+                <div class="columns-3">
+                    <div class="w-full">
+                    <label for="bangunan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Bangunan</label>
+                    <textarea id="bangunan" name="bangunan" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Keterangan Silahkan..."></textarea>
+                    </div>
+                    <div class="w-full">
+                    <label for="analisa" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Analisa Kerusakan</label>
+                    <textarea id="analisa" name="analisa" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Indikasi Rusak" required></textarea>
+                    </div>
+                    <div class="w-full">
+                    <label for="kerusakan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Catatan Kerusakan/Kelainan</label>
+                    <textarea id="kerusakan" name="kerusakan" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nama Alat yg Rusak" required></textarea>
+                    </div>
+                </div>
+                <br>
                 <div>
-                    <label for="Oleh" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Di input Oleh {{ Auth::user()->name }}</label>
-                    <input type="text" name="Oleh" id="Oleh" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nama Inputer" required="">
+                    <label for="action" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tindakan Yang Diambil Oleh{{ Auth::user()->name }} :</label>
+                    <input type="text" name="action" id="action" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Tindakan Lanjutan" required="">
+                </div>
+                <br>
+                <div class="columns-3">
+                    <div class="w-full">
+                    <label for="operator" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">TTD Pelapor</label>
+                    <textarea id="operator" name="operator" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Untuk Area TTD"></textarea>
+                    </div>
+                    <div class="w-full">
+                    <label for="diperiksa" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Diperiksa Oleh SPV Produksi</label>
+                    <textarea id="diperiksa" name="diperiksa" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Untuk Area TTD" required></textarea>
+                    </div>
+                    <div class="w-full">
+                    <label for="diperiksa" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kondisi Kerusakan (Diisi Oleh SPV)</label>                      
+                        <div class="flex items-center">
+                            <input id="status-laporan" name="status-laporan" type="checkbox" value="Lk ini berhubungan dengan proses produksi dan ada kerusakan/kelainan setelah pengecekan dilapangan" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="status-laporan" class="ml-1 text-sm font-sm text-gray-900 dark:text-gray-300">Lk ini berhubungan dengan proses produksi dan ada kerusakan/kelainan</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input checked id="status-laporan" name="status-laporan" type="checkbox" value="Lk tidak berhubungan dengan proses produksi" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="status-laporan" class="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300">Lk tidak berhubungan dengan proses produksi</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input checked id="status-laporan" name="status-laporan" type="checkbox" value="LK Tidak ada kelainan/kerusakan setelah pengecekan" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="status-laporan" class="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300">LK Tidak ada kelainan/kerusakan setelah pengecekan</label>
+                        </div>
+                    </div>
                 </div> 
-                <div>
-                    <label for="Status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status </label>
-                    <select id="Status" name="Status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                        <option >Select Status</option>
-                        <option value="Running">Running</option>
-                        <option value="Standby">Standby</option>
-                        <option value="UnderMT">UnderMT</option>
-                    </select>
+                <br>
+                <div class="columns-3">
+                    <div class="w-full">
+                        <label for="catatan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Catatan</label>
+                            <textarea id="catatan" name="catatan" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Dari Plant Manager"></textarea>
+                    </div>
+                    <div class="w-full">
+                        <label for="ttd" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Area TTD MGR</label>
+                            <textarea id="ttd" name="ttd" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="TTD Plant Manager"></textarea>
+                    </div>
+                    <div class="w-full">
+                        <label for="Status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Intervensi Yang Dibutuhkan </label>
+                        <div class="flex items-center">
+                            <input id="urgensi" name="urgensi" type="checkbox" value="Kritis" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="default-checkbox" class="ml-1 text-sm font-sm text-gray-900 dark:text-gray-300">Kritis</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input checked id="urgensi" name="urgensi" type="checkbox" value="Penting" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checked-checkbox" class="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300">Penting</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input checked id="urgensi" name="urgensi" type="checkbox" value="Rekomendasi" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checked-checkbox" class="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300">Rekomendasi</label>
+                        </div>
+                    </div>
                 </div> 
+
                 <div class="sm:col-span-3">
-                    <label for="Keterangan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Keterangan</label>
-                    <textarea id="Keterangan" rows="8" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Keterangan Silahkan..."></textarea>
+                    <label for="ttdmgr" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Keterangan</label>
+                    <textarea id="ttdmgr"  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Keterangan Silahkan..."></textarea>
                 </div>
                 <br>
                 <button type="submit" class="px-6 top-10 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 items-center">
