@@ -11,7 +11,7 @@ class LkModel extends Model
     protected $table = 'laporankerusakan';
     protected $fillable = [
         'id',
-        'no-lk',
+        'nolk',
         'nama',
         'day',
         'tanggal',
@@ -33,5 +33,6 @@ class LkModel extends Model
         'spvmtc',
         'pelaksana',
         'pelapor',
+        'status',
     ];
 }

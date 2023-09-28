@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('bangunan',255)->nullable();
             $table->string('analisa',255)->nullable();
             $table->string('action',255)->nullable();
+            $table->string('kerusakan',255)->nullable();
             $table->string('operator',255)->nullable();
             $table->string('diperiksa',255)->nullable();
             $table->enum('status-laporan',['Lk ini berhubungan dengan proses produksi dan ada kerusakan/kelainan setelah pengecekan dilapangan','Lk tidak berhubungan dengan proses produksi','LK Tidak ada kelainan/kerusakan setelah pengecekan',])->default('Lk tidak berhubungan dengan proses produksi');
@@ -34,6 +35,7 @@ return new class extends Migration
             $table->string('spvmtc',255);
             $table->string('pelaksana',255);
             $table->string('pelapor',255);
+            $table->enum('status',['Created','Onprogres','Completed']);
             $table->timestamps();
         });
     }
