@@ -20,7 +20,7 @@ class laporanController extends Controller
         $progres = LkModel::where('status','Onprogres')->count();
         $new = LkModel::where('status','Created')->count();
         $data = LkModel::orderBy('status','asc')->get();
-        return view('mtc.mainlaporan')->with(compact('data'))->with(compact('new'))->with(compact('count'))->with(compact('ok'))->with(compact('progres'))->with( ['user' => Auth::user()]);
+        return view('mtc..laporan.mainlaporan')->with(compact('data'))->with(compact('new'))->with(compact('count'))->with(compact('ok'))->with(compact('progres'))->with( ['user' => Auth::user()]);
     }
 
     /**
@@ -28,7 +28,7 @@ class laporanController extends Controller
      */
     public function create()
     {
-        return view('mtc.create-lk')->with( ['user' => Auth::user()]);
+        return view('mtc.laporan.create-lk')->with( ['user' => Auth::user()]);
     }
 
     /**
@@ -47,7 +47,8 @@ class laporanController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = LkModel::findOrFail($id);
+        return view('mtc.laporan.showlk')->with(compact('data'))->with( ['user' => Auth::user()]);
     }
 
     /**
@@ -55,7 +56,8 @@ class laporanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = LkModel::findOrFail($id);
+        return view('mtc.laporan.editlk')->with(compact('data'))->with( ['user' => Auth::user()]);
     }
 
     /**
