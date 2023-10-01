@@ -41,7 +41,7 @@ class pompabackwashController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(pompabackwash $pompabackwash)
+    public function show(string $id)
     {
         $data = pompabackwash::findOrFail($id);
         return view('mtc.showpompabw')->with(compact('data'))->with( ['user' => Auth::user()]);

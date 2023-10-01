@@ -65,7 +65,10 @@ class laporanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = LkModel::findOrFail($id);
+        $data->update($request->all());
+        Alert::success('Congrats', 'Data Edited Succesfuly');
+        return redirect('/laporan')->with( ['user' => Auth::user()]);
     }
 
     /**
