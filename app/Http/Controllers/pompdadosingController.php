@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\PompaDosingChart;
 use App\Models\pompadosing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,10 +18,10 @@ class pompdadosingController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(PompaDosingChart $PompaDosingChart)
     {
         $data = pompadosing::all();
-        return view('mtc.mainpompadosing')->with(compact('data'))->with( ['user' => Auth::user()]);
+        return view('mtc.mainpompadosing', ['PompaDosingChart'=> $PompaDosingChart->build()])->with(compact('data'))->with( ['user' => Auth::user()]);
     }
 
     /**

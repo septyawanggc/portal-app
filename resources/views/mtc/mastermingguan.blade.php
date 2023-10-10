@@ -3,8 +3,6 @@
 @endsection
 @section('main')
 @if ($user->level == "SPV-Maintenance" or $user->level == "Admin" or $user->level=="Dirut" or $user->level=="PlantManager" or $user->level=="Teknisi")
-<section>
- 
      <aside id="default-sidebar" class="fixed left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 rounded" aria-label="Sidebar">
         <div class="h-full px-3 py-4 overflow-y-auto bg-white dark:bg-gray-200 dark:text-black">
            <ul class="space-y-2 font-medium">
@@ -81,9 +79,6 @@
      <div class="p-4 sm:ml-64">
       @yield('mainmenu')
       </div>
-     
-
-</section>
 @endif
 @endsection
 @section('footer')

@@ -9,6 +9,7 @@ use App\Http\Controllers\pompabackwashController;
 use App\Http\Controllers\pompaintakeController;
 use App\Http\Controllers\pompdadosingController;
 use App\Http\Controllers\laporanController;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,6 @@ use App\Http\Controllers\laporanController;
 
 Route::get('/', function () {
     return view('landing');
-});
-Route::get('/test', function (){
-    return view('test');
 });
 
 Route::get('/dashboard', function () {
@@ -44,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/pompadosing',pompdadosingController::class);
     Route::get('/export-pompadosing',[pompdadosingController::class, 'exportToExcel'])->name('export-pompadosing');
     Route::resource('/laporan',laporanController::class);
+    Route::resource('/test',TestController::class );
 });
 
 require __DIR__.'/auth.php';
