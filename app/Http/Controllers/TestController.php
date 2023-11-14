@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Creagia\LaravelSignPad\Concerns\RequiresSignature;
 use Creagia\LaravelSignPad\Contracts\CanBeSigned;
-use App\Models\pompadosing;
+use App\Models\LkModel;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
@@ -32,20 +36,22 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        $folderPath = public_path('upload/');
+        $data = $request->all();
+        lkModel::create($data);
+       
+        $folderPath1 = public_path('storage/app');
+        $image_parts1 = explode(";base64,", $request->signed1);
+        $image_type_aux1 = explode("image/", $image_parts1[0]);
+        $image_type1 = $image_type_aux1[1];
+        $image_base64_1 = base64_decode($image_parts1[1]);
+        $file1 = $folderPath1 . uniqid() . '.'.$image_type1;
+        $filename = uniqid() . '.'.$image_type1;
+        file_put_contents($file1, $image_base64_1);
+        $insert = DB::table('laporankerusakan',)->insert(['operator' => $filename]);
         
-        $image_parts = explode(";base64,", $request->signed);
-              
-        $image_type_aux = explode("image/", $image_parts[0]);
-           
-        $image_type = $image_type_aux[1];
-           
-        $image_base64 = base64_decode($image_parts[1]);
-           
-        $file = $folderPath . uniqid() . '.'.$image_type;
-        file_put_contents($file, $image_base64);
+
         Alert::success('Congrats', 'Data Inputed Succesfuly');
-        return back();
+        return back()->with( ['user' => Auth::user()]);
     }
 
     /**
