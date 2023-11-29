@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\LkModel;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class laporanController extends Controller
 {
@@ -28,7 +31,7 @@ class laporanController extends Controller
      */
     public function create()
     {
-        return view('mtc.laporan.create-lk')->with( ['user' => Auth::user()]);
+        return view('mtc.laporan.create-laporan1')->with( ['user' => Auth::user()]);
     }
 
     /**
@@ -36,8 +39,28 @@ class laporanController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        LkModel::create($data);
+        
+        $image_parts1 = explode(";base64,", $request->signed1);
+        $image_type_aux1 = explode("image/", $image_parts1[0]);
+        $image_type1 = $image_type_aux1[1];
+        $image_base64_1 = base64_decode($image_parts1[1]);
+        $filename = uniqid() . '.'.$image_type1;
+        Storage::disk('images')->put($filename,$image_base64_1);
+       
+        $LK = new LkModel;
+        $LK->nolk = $request->nolk;
+        $LK->nama = $request->nama;
+        $LK->alat = $request->alat;
+        $LK->tanggal = $request->tanggal;
+        $LK->day = $request->day;
+        $LK->pid = $request->pid;
+        $LK->bangunan = $request->bangunan;
+        $LK->analisa = $request->analisa;
+        $LK->kerusakan = $request->kerusakan;
+        $LK->action = $request->action;
+        $LK->operator = ('/storage/images/'.$filename);
+
+        $LK->save();
         Alert::success('Congrats', 'Data Inputed Succesfuly');
         return redirect('/laporan')->with( ['user' => Auth::user()]);
     }
@@ -45,6 +68,7 @@ class laporanController extends Controller
     /**
      * Display the specified resource.
      */
+   
     public function show(string $id)
     {
         $data = LkModel::findOrFail($id);

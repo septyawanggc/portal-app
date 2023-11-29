@@ -10,6 +10,7 @@ use App\Http\Controllers\pompaintakeController;
 use App\Http\Controllers\pompdadosingController;
 use App\Http\Controllers\laporanController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\Proses1Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/pompadosing',pompdadosingController::class);
     Route::get('/export-pompadosing',[pompdadosingController::class, 'exportToExcel'])->name('export-pompadosing');
     Route::resource('/laporan',laporanController::class);
+    Route::resource('/proses1',Proses1Controller::class);
     Route::resource('/test',TestController::class );
 });
 
