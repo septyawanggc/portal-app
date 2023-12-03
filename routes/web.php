@@ -11,6 +11,13 @@ use App\Http\Controllers\pompdadosingController;
 use App\Http\Controllers\laporanController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\Proses1Controller;
+use App\Http\Controllers\Proses2Controller;
+use App\Http\Controllers\Proses3Controller;
+use App\Http\Controllers\CompleteProsesController;
+use App\Http\Controllers\DownloadLaporanController;
+use App\Http\Controllers\MainSCMController;
+use App\Http\Controllers\InputPermitController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +51,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/export-pompadosing',[pompdadosingController::class, 'exportToExcel'])->name('export-pompadosing');
     Route::resource('/laporan',laporanController::class);
     Route::resource('/proses1',Proses1Controller::class);
+    Route::resource('/proses2',Proses2Controller::class);
+    Route::resource('/proses3',Proses3Controller::class);
+    Route::resource('/complete',CompleteProsesController::class);
+    Route::resource('/downloadlaporan',DownloadLaporanController::class);
+    Route::resource('/scm', MainSCMController::class);
+    Route::resource('/inputpermit', InputPermitController::class);
     Route::resource('/test',TestController::class );
 });
 

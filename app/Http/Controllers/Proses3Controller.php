@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\LkModel;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
 
-class Proses1Controller extends Controller
+class Proses3Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +23,7 @@ class Proses1Controller extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -41,9 +40,8 @@ class Proses1Controller extends Controller
     public function show(string $id)
     {
         $data = LkModel::findOrFail($id);
-        return view('mtc.laporan.create-laporan2')->with(compact('data'))->with( ['user' => Auth::user()]);
+        return view('mtc.laporan.create-laporan4')->with(compact('data'))->with( ['user' => Auth::user()]);
     }
-    
 
     /**
      * Show the form for editing the specified resource.
@@ -58,23 +56,29 @@ class Proses1Controller extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = LKModel::findOrFail($id);
-        $userprod = Auth::user();
-    
-        $image_parts1 = explode(";base64,", $request->signedspv);
-        $image_type_aux1 = explode("image/", $image_parts1[0]);
-        $image_type1 = $image_type_aux1[1];
-        $image_base64_1 = base64_decode($image_parts1[1]);
-        $filename = uniqid() . '.'.$image_type1;
-        Storage::disk('images')->put($filename,$image_base64_1);
+        $data = LkModel::findOrFail($id);
+        $usermtc = Auth::user();
 
-        $data->statuslk = $request->statuslk;
-        $data->spvprod = ('/storage/images/'.$filename);
-        $data->status = ('ApprovalSPV');
-        $data->userprod = $userprod;
+        $data->departemen = $request->departemen;
+        $data->dilakukan = $request->dilakukan;
+        $data->tglsubrun = $request->tglsubrun;
+        $data->tglsubend = $request->tglsubend;
+        $data->countsub = $request->countsub;
+        $data->eksekutor = $request->eksekutor;
+        $data->tahap = $request->tahap;
+        $data->eksekusiday = $request->eksekusiday;
+        $data->starkerja = $request->starkerja;
+        $data->endkerja = $request->endkerja;
+        $data->manhour = $request->manhour;
+        $data->hasil = $request->hasil;
+        $data->cegah = $request->cegah;
+        $data->material = $request->material;
+        $data->status = ('Onprogres');
+        $data->usermtc = $usermtc;
         
         $data->update();
-        return redirect('/laporan')->with('success', 'Approval SPV Berhasil')->with( ['user' => Auth::user()]);
+
+        return redirect('/laporan')->with('success', 'Telah Diproses Oleh Maintenance')->with( ['user' => Auth::user()]);
     }
 
     /**

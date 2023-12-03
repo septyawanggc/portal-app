@@ -23,7 +23,7 @@ class laporanController extends Controller
         $progres = LkModel::where('status','Onprogres')->count();
         $new = LkModel::where('status','Created')->count();
         $data = LkModel::orderBy('status','asc')->get();
-        return view('mtc..laporan.mainlaporan')->with(compact('data'))->with(compact('new'))->with(compact('count'))->with(compact('ok'))->with(compact('progres'))->with( ['user' => Auth::user()]);
+        return view('mtc.laporan.mainlaporan')->with(compact('data'))->with(compact('new'))->with(compact('count'))->with(compact('ok'))->with(compact('progres'))->with( ['user' => Auth::user()]);
     }
 
     /**
@@ -47,6 +47,7 @@ class laporanController extends Controller
         $filename = uniqid() . '.'.$image_type1;
         Storage::disk('images')->put($filename,$image_base64_1);
        
+        $userpelapor = Auth::user();
         $LK = new LkModel;
         $LK->nolk = $request->nolk;
         $LK->nama = $request->nama;
@@ -58,6 +59,7 @@ class laporanController extends Controller
         $LK->analisa = $request->analisa;
         $LK->kerusakan = $request->kerusakan;
         $LK->action = $request->action;
+        $LK->userpelapor = $userpelapor;
         $LK->operator = ('/storage/images/'.$filename);
 
         $LK->save();
@@ -72,7 +74,7 @@ class laporanController extends Controller
     public function show(string $id)
     {
         $data = LkModel::findOrFail($id);
-        return view('mtc.laporan.showlk')->with(compact('data'))->with( ['user' => Auth::user()]);
+        return view('mtc.laporan.showcomplete')->with(compact('data'))->with( ['user' => Auth::user()]);
     }
 
     /**
@@ -89,10 +91,7 @@ class laporanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = LkModel::findOrFail($id);
-        $data->update($request->all());
-        Alert::success('Congrats', 'Data Edited Succesfuly');
-        return redirect('/laporan')->with( ['user' => Auth::user()]);
+        
     }
 
     /**

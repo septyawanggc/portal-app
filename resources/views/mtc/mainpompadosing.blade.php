@@ -261,6 +261,8 @@
   </table>
 </div>
 </x-bladewind.card>
+@endsection
+@section('footer')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script>
   function confirmDelete(item_id) {
@@ -282,10 +284,6 @@
           });
   }
 </script>
-<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/dataTables.tailwindcss.min.js"></script>
-<script src="https://cdn.tailwindcss.com/"></script>
 <script type="text/javascript">
   $(document).ready(function () {
     $('#pompaintake').DataTable({
@@ -297,6 +295,4 @@
 <script src="{{ $PompaDosingChart->cdn() }}"></script>
 
 {{ $PompaDosingChart->script() }}
-@endsection
-@section('footer')
 @endsection

@@ -9,6 +9,7 @@ class LkModel extends Model
 {
     use HasFactory;
     protected $table = 'laporankerusakan';
+    protected $primarykey = 'id';
     protected $fillable = [
         'id',
         'nolk',
@@ -22,17 +23,18 @@ class LkModel extends Model
         'kerusakan',
         'action',
         'operator',
-        'diperiksa',
+        'spvprod',
         'statuslk',
         'urgensi',
         'catatan',
         'departement',
         'dilakukan',
-        'Keterangan',
+        'userprod',
+        'usermgr',
         'manager',
         'spvmtc',
-        'pelaksana',
-        'pelapor',
+        'usermtc',
+        'userpelapor',
         'tglsubrun',
         'tglsubend',
         'countsub',
@@ -45,6 +47,7 @@ class LkModel extends Model
         'hasil',
         'cegah',
         'material',
+        'userspvmtc',
         'status',
     ];
 }

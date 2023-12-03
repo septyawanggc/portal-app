@@ -27,7 +27,7 @@
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4"/>
         </svg>
     </li>
-    <li class="flex items-center">
+    <li class="flex items-center text-blue-600 dark:text-blue-500">
         <span class="flex items-center justify-center w-5 h-5 mr-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
             3
         </span>
@@ -65,10 +65,10 @@
             <h6 class="float-right text-lg font-bold dark:text-white">ASB/MAIN/FM-032 Rev.00 <p class="text-lg font-normal text-gray-500 lg:text-sm dark:text-gray-400">Tgl. Berlaku : 15 September 2021 </p></h6>
           </div>
         <br>
-        <form action="{{ route('proses1.update', $data->id) }}" method="post" >
+        <form action="{{ route('proses2.update', $data->id) }}" method="post" >
             @method('PATCH')
             @csrf
-            <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+            <div class="grid gap-2 sm:grid-cols-2 sm:gap-6">
                 <div class="sm:col-span-2">
                     <div class="columns-3">
                         <div class="w-full">
@@ -117,41 +117,65 @@
                     </div>
                 </div>
                 <br>
-                <div class="w-full">
-                    <label for="action" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tindakan Yang Diambil Oleh :</label>
-                    <textarea id="action" name="action" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" readonly>{{$data->action}}</textarea>
-                </div>
-                <br>
-                <div class="w-full">
-                        <label for="operator" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">TTD Operator</label>
-                        <img class="h-auto max-w-lg rounded-lg" src="{{ asset($data->operator) }}" alt="ttd operator" style="width: auto; height: 150px;">
-                </div>
-                <br>
-                    <div class="w-full">
-                    <label for="diperiksa" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kondisi Kerusakan (Diisi Oleh SPV)</label>                      
-                        <div class="flex items-center">
-                            <input id="statuslk" name="statuslk" type="checkbox" value="Lk ini berhubungan dengan proses produksi dan ada kerusakan/kelainan setelah pengecekan dilapangan" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="statuslk" class="ml-1 text-sm font-sm text-gray-900 dark:text-gray-300">Lk ini berhubungan dengan proses produksi dan ada kerusakan/kelainan</label>
+                <div class="columns-2">
+                    <x-bladewind.card>
+                        <div class="w-full">
+                            <label for="action" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tindakan Yang Diambil :</label>
+                            <textarea id="action" name="action" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" readonly>{{$data->action}}</textarea>
                         </div>
-                        <div class="flex items-center">
-                            <input  id="statuslk" name="statuslk" type="checkbox" value="Lk tidak berhubungan dengan proses produksi" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="statuslk" class="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300">Lk tidak berhubungan dengan proses produksi</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input  id="statuslk" name="statuslk" type="checkbox" value="LK Tidak ada kelainan/kerusakan setelah pengecekan" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="statuslk" class="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300">LK Tidak ada kelainan/kerusakan setelah pengecekan</label>
-                        </div>
-                    </div>
                     <br>
+                        <div class="w-full">
+                            <label for="operator" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">TTD Operator</label>
+                            <img class="h-auto max-w-lg rounded-lg" src="{{ asset($data->operator) }}" alt="ttd operator" style="width: auto; height: 150px;">
+                        </div>
+                    </x-bladewind.card>
+                    <x-bladewind.card>
+                        <div class="w-full">
+                            <label for="Hari" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kondisi Kerusakan</label>
+                            <textarea id="action" name="action" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 justify-center" readonly>{{$data->statuslk}}</textarea>
+                        </div>
+                        <br>
+                        <div class="w-full">
+                            <label for="operator" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">TTD SPV Produksi</label>
+                            <img class="h-auto max-w-lg rounded-lg" src="{{ asset($data->spvprod) }}" alt="ttd operator" style="width: auto; height: 150px;">
+                        </div>
+                    </x-bladewind.card>
+                </div>
+                <br>
+                <div class="columns-2 dark:text-white">
+                    <x-bladewind.card>
                     <div class="w-full">
-                        <label for="spvprod" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">TTD SPV Produksi</label>
-                        <div id="sigspv" ></div>
-                            <br/>
-                            <button id="clearspv" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded items-center">Clear Signature</button>
-                            <textarea id="signature64_spv" name="signedspv" style="display: none"></textarea>
+                        <label for="catatan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Catatan</label>
+                            <textarea id="catatan" name="catatan" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Dari Plant Manager"></textarea>
+                    </div>
+                    </x-bladewind.card>
+                    <x-bladewind.card>
+                    <div class="w-full">
+                        <label for="Status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Intervensi Yang Dibutuhkan </label>
+                        <div class="flex items-center">
+                            <input id="urgensi" name="urgensi" type="checkbox" value="Kritis" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="default-checkbox" class="ml-1 text-sm font-sm text-gray-900 dark:text-gray-300">Kritis</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input  id="urgensi" name="urgensi" type="checkbox" value="Penting" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="default-checkbox" class="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300">Penting</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input  id="urgensi" name="urgensi" type="checkbox" value="Rekomendasi" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="default-checkbox" class="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300">Rekomendasi</label>
                         </div>
                     </div>
-                
+                </x-bladewind.card>
+                </div>
+                <br>
+                <div class="w-fit">
+                        <label for="ttd" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Area TTD Manager</label>
+                            <div id="sigmanager" ></div>
+                                <br/>
+                                <button id="clearmanager" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded items-center">Clear Signature</button>
+                                <textarea id="signature64_manager" name="signedmanager" style="display: none"></textarea>
+                            </div>
+                </div> 
             </div>
             <button type="submit" class="px-6 top-10 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 items-center">
                 Update Laporan
@@ -162,13 +186,14 @@
   </section>
 <br>
 <script type="text/javascript">
-    var sigspv = $('#sigspv').signature({syncField: '#signature64_spv', syncFormat: 'PNG'});
-    $('#clearspv').click(function(e) {
+    var sigmanager = $('#sigmanager').signature({syncField: '#signature64_manager', syncFormat: 'PNG'});
+    $('#clearmanager').click(function(e) {
         e.preventDefault();
-        sigspv.signature('clear');
-        $("#signature64_spv").val('');
+        sigmanager.signature('clear');
+        $("#signature64_manager").val('');
     });
 </script>
 @endsection
 @section('footer')
+
 @endsection

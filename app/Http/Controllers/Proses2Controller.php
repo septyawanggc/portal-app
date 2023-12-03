@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\LkModel;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
 
-class Proses1Controller extends Controller
+class Proses2Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +23,7 @@ class Proses1Controller extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -41,9 +40,8 @@ class Proses1Controller extends Controller
     public function show(string $id)
     {
         $data = LkModel::findOrFail($id);
-        return view('mtc.laporan.create-laporan2')->with(compact('data'))->with( ['user' => Auth::user()]);
+        return view('mtc.laporan.create-laporan3')->with(compact('data'))->with( ['user' => Auth::user()]);
     }
-    
 
     /**
      * Show the form for editing the specified resource.
@@ -59,22 +57,25 @@ class Proses1Controller extends Controller
     public function update(Request $request, string $id)
     {
         $data = LKModel::findOrFail($id);
-        $userprod = Auth::user();
-    
-        $image_parts1 = explode(";base64,", $request->signedspv);
+        $usermgr = Auth::user();
+
+        $image_parts1 = explode(";base64,", $request->signedmanager);
         $image_type_aux1 = explode("image/", $image_parts1[0]);
         $image_type1 = $image_type_aux1[1];
         $image_base64_1 = base64_decode($image_parts1[1]);
         $filename = uniqid() . '.'.$image_type1;
         Storage::disk('images')->put($filename,$image_base64_1);
 
-        $data->statuslk = $request->statuslk;
-        $data->spvprod = ('/storage/images/'.$filename);
-        $data->status = ('ApprovalSPV');
-        $data->userprod = $userprod;
+        $data->catatan = $request->catatan;
+        $data->urgensi = $request->urgensi;
+        $data->manager = ('/storage/images/'.$filename);
+        $data->status = ('ApprovalManager');
+        $data->usermgr = $usermgr;
         
         $data->update();
-        return redirect('/laporan')->with('success', 'Approval SPV Berhasil')->with( ['user' => Auth::user()]);
+
+        return redirect('/laporan')->with('success', 'Approval Manager Berhasil')->with( ['user' => Auth::user()]);
+        
     }
 
     /**

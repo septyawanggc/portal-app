@@ -35,8 +35,7 @@ class pompaintakeController extends Controller
     {
         $data = $request->all();
         pompaintake::create($data);
-        Alert::success('Congrats', 'Data Inputed Succesfuly');
-        return redirect('/pompaintake')->with( ['user' => Auth::user()]);
+        return redirect('/pompaintake')->with('success','Data Inputed Succesfuly')->with( ['user' => Auth::user()]);
     }
     /**
      * Display the specified resource.
