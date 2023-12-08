@@ -10,6 +10,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use sirajcse\UniqueIdGenerator\UniqueIdGenerator;
 
 class laporanController extends Controller
 {
@@ -48,8 +49,9 @@ class laporanController extends Controller
         Storage::disk('images')->put($filename,$image_base64_1);
        
         $userpelapor = Auth::user();
+        $id = UniqueIdGenerator::generate(['table' => 'laporankerusakan','field'=>'nolk', 'length' => 14,'prefix' =>'ASB-LK-', 'suffix' =>date('/M/Y')]);
         $LK = new LkModel;
-        $LK->nolk = $request->nolk;
+        $LK->nolk = $id;
         $LK->nama = $request->nama;
         $LK->alat = $request->alat;
         $LK->tanggal = $request->tanggal;

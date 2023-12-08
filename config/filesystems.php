@@ -42,6 +42,18 @@ return [
             'throw' => true,
         ],
 
+        'documents' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/doc'),
+            'throw' => true,
+        ],
+
+        'downloaddoc' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/doc/download'),
+            'throw' => true,
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

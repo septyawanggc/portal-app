@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/proses3',Proses3Controller::class);
     Route::resource('/complete',CompleteProsesController::class);
     Route::resource('/downloadlaporan',DownloadLaporanController::class);
+    Route::get('/savelaporan/{id}',[DownloadLaporanController::class,'savelaporan'])->name('savelaporan');
     Route::resource('/scm', MainSCMController::class);
     Route::resource('/inputpermit', InputPermitController::class);
     Route::resource('/test',TestController::class );

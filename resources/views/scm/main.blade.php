@@ -4,8 +4,8 @@
 @section('main')
 @if ($user->level == "SPV-Maintenance" or $user->level == "Admin" or $user->level=="Dirut" or $user->level=="PlantManager" or $user->level=="Teknisi" or $user->level == "SPV-Produksi" or $user->level == "SCM" or $user->level == "HSE" or $user->level == "Laborat")
 @include('sweetalert::alert')
-<section>
-<div class="container mx-auto grid grid-cols-3 gap-2">
+<section class="overflow-x:auto; container mx-auto gap-5">
+<div class="grid grid-cols-3 gap-2">
     <x-bladewind.card class="cursor-pointer hover:shadow-gray-300 item-center">
             <img class="rounded-sm flex-wrap justify-center" src="/image/document.svg" style="width: 150px; height:150px; align-items: center;" />
             <div class="justify-content-around">
