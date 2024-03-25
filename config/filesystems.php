@@ -36,6 +36,24 @@ return [
             'throw' => false,
         ],
 
+        'images' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/images'),
+            'throw' => true,
+        ],
+
+        'documents' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/doc'),
+            'throw' => true,
+        ],
+
+        'downloaddoc' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/doc/download'),
+            'throw' => true,
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
@@ -71,6 +89,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('images') => storage_path('app/public/images'),
     ],
 
 ];
