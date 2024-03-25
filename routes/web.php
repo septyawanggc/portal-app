@@ -19,6 +19,7 @@ use App\Http\Controllers\MainSCMController;
 use App\Http\Controllers\InputPermitController;
 use App\Http\Controllers\InstrumentController;
 use App\Http\Controllers\phCalController;
+use App\Http\Controllers\turbidCalController;
 
 
 
@@ -64,6 +65,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/instrumen', InstrumentController::class);
     Route::resource('/formph',phCalController::class);
     Route::get('/listalat',[phCalController::class,'Equipment'])->name('listalat');
+    Route::resource('/turbid', turbidCalController::class);
     Route::resource('/test',TestController::class );
 });
 

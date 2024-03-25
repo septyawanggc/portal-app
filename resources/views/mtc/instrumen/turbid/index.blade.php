@@ -15,13 +15,13 @@
                 </a>
             </li>
             <li class="me-2">
-                <a href="/formph" class="inline-flex items-center justify-center p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500 group" aria-current="page">
-                    <ion-icon name="speedometer-outline" class="w-4 h-4 me-2 text-blue-600 dark:text-blue-500" aria-hidden="true"></ion-icon>Form Kalibrasi pH
+                <a href="/formph" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                    <ion-icon name="speedometer-outline" class="w-4 h-4 me-2 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300" aria-hidden="true"></ion-icon>Form Kalibrasi pH
                 </a>
             </li>
             <li class="me-2">
-                <a href="/turbid" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
-                    <ion-icon name="speedometer-outline" class="w-4 h-4 me-2 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300" aria-hidden="true"></ion-icon>Form Kalibrasi Turbid
+                <a href="/turbid" class="inline-flex items-center justify-center p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500 group" aria-current="page">
+                    <ion-icon name="speedometer-outline" class="w-4 h-4 me-2 text-blue-600 dark:text-blue-500" aria-hidden="true"></ion-icon>Form Kalibrasi Turbid
                 </a>
             </li>
             <li class="me-2">
@@ -63,7 +63,7 @@
 <br>
 <div class="grid mb-4 border-solid border-2 border-lime-700 rounded-lg shadow-sm dark:border-sky-700 md:mb-10">
     <x-bladewind.card  has_shadow="true">
-        <h1 class="flex items-center text-4xl font-extrabold dark:text-white">List Hasil Kalibrasi <span class="bg-blue-100 text-blue-800 text-2xl font-semibold me-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-2">pH</span></h1>
+        <h1 class="flex items-center text-4xl font-extrabold dark:text-white">List Hasil Kalibrasi <span class="bg-blue-100 text-blue-800 text-2xl font-semibold me-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-2">Turbid Analyzer</span></h1>
         <br>
         <div class="shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 table-auto" id="formph">
