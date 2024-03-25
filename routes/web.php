@@ -17,6 +17,9 @@ use App\Http\Controllers\CompleteProsesController;
 use App\Http\Controllers\DownloadLaporanController;
 use App\Http\Controllers\MainSCMController;
 use App\Http\Controllers\InputPermitController;
+use App\Http\Controllers\InstrumentController;
+use App\Http\Controllers\phCalController;
+
 
 
 /*
@@ -58,6 +61,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/savelaporan/{id}',[DownloadLaporanController::class,'savelaporan'])->name('savelaporan');
     Route::resource('/scm', MainSCMController::class);
     Route::resource('/inputpermit', InputPermitController::class);
+    Route::resource('/instrumen', InstrumentController::class);
+    Route::resource('/formph',phCalController::class);
+    Route::get('/listalat',[phCalController::class,'Equipment'])->name('listalat');
     Route::resource('/test',TestController::class );
 });
 

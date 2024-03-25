@@ -49,7 +49,6 @@ class TestController extends Controller
         file_put_contents($file1, $image_base64_1);
         $insert = DB::table('laporankerusakan',)->insert(['operator' => $filename]);
         
-
         Alert::success('Congrats', 'Data Inputed Succesfuly');
         return back()->with( ['user' => Auth::user()]);
     }

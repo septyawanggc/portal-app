@@ -105,7 +105,7 @@ class pompdadosingController extends Controller
             }
         
         // Simpan perubahan
-        $writer = new Xlsx($spreadsheet);31
+        $writer = new Xlsx($spreadsheet);
         $writer->save($outputPath);
     
         // Download file yang telah dibuat
